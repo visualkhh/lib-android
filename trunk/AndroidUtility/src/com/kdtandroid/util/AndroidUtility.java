@@ -1469,7 +1469,6 @@ public static Dialog creativeDialog(Context context,int layout){
 	public static void setTitle(Activity context , int reglayout){
 		context.getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,reglayout);
 	}
-	
 	public static void setWindowNoTitle(Activity context){
 		setWindowFeature(context, Window.FEATURE_NO_TITLE);
 	}
@@ -1477,6 +1476,9 @@ public static Dialog creativeDialog(Context context,int layout){
 //		context.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		context.requestWindowFeature(windowFeature);
 	}
+	
+	
+	
 	public static  ProgressDialog creativeProgressBar (Context context){
         return creativeProgressBar(context,null);
 	}
