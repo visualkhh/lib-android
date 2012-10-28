@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, utility!</string>
+    <string name="app_name">AndroidUtility</string>
+    <string name="title">AndroidUtility %2$s %1$s</string>
+</resources>

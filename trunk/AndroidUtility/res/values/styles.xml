@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	
+
+
+
+ 	<style name="KTheme.Popup" parent="@android:style/Theme.Dialog">
+		 <item name="android:windowNoTitle">true</item>
+		   <item name="android:windowIsTranslucent">true</item>
+		   <item name="android:backgroundDimAmount">0</item> 
+		   <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+		 <item name="android:windowBackground">@android:drawable/alert_dark_frame</item>	
+	</style>
+
+ 	<style name="KTheme.FullPopup" parent="@android:style/Theme.Dialog">
+ 	  <item name="android:windowFullscreen">true</item>
+ 	  	 <item name="android:windowNoTitle">true</item>
+		   <item name="android:windowIsTranslucent">true</item>
+		   <item name="android:backgroundDimAmount">0</item> 
+		   <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+		 <item name="android:windowBackground">@android:drawable/alert_dark_frame</item>	
+	</style>
+  	 
+  	
+	<style name="font">
+		<item name="android:textSize">16px</item>
+	</style>
+
+	<!-- △  parent  font  -->	
+		<style name="smallfont" parent="@style/font">
+			<item name="android:textSize">10px</item>
+		</style>
+	
+		<style name="smallbigfont" parent="@style/font">
+			<item name="android:textSize">15px</item>
+		</style>
+	
+		<style name="nomalfont" parent="@style/font">
+			<item name="android:textSize">20px</item>
+		</style>
+	
+		<style name="bigfont" parent="@style/font">
+			<item name="android:textSize">30px</item>
+		</style>
+		<style name="bigbigfont" parent="@style/font">
+			<item name="android:textSize">40px</item>
+		</style>
+		<style name="bigbigbigfont" parent="@style/font">
+			<item name="android:textSize">60px</item>
+		</style>
+	<!--   -->	
+	
+	
+	<!--  black color -->
+		<style name="blacksmallfont" parent="@style/smallfont">
+			<item name="android:textColor">#FF000000</item>
+		</style>
+		
+		<style name="blacksmallbigfont" parent="@style/smallbigfont">
+			<item name="android:textColor">#FF000000</item>
+		</style>
+		
+		<style name="blacknomalfont" parent="@style/nomalfont">
+			<item name="android:textColor">#FF000000</item>
+		</style>
+	
+		<style name="blackbigfont" parent="@style/bigfont">
+			<item name="android:textColor">#FF000000</item>
+		</style>
+		<style name="blackbigbigfont" parent="@style/bigbigfont">
+			<item name="android:textColor">#FF000000</item>
+		</style>
+		<style name="blackbigbigbigfont" parent="@style/bigbigbigfont">
+			<item name="android:textColor">#FF000000</item>
+		</style>
+  	<!--  -->
+	
+	<!--  black color -->
+		<style name="whitesmallfont" parent="@style/smallfont">
+			<item name="android:textColor">#FFFFFFFF</item>
+		</style>
+	
+		<style name="whitesmallbigfont" parent="@style/smallbigfont">
+			<item name="android:textColor">#FFFFFFFF</item>
+		</style>
+	
+		<style name="whitenomalfont" parent="@style/nomalfont">
+			<item name="android:textColor">#FFFFFFFF</item>
+		</style>
+	
+		<style name="whitebigfont" parent="@style/bigfont">
+			<item name="android:textColor">#FFFFFFFF</item>
+		</style>
+		<style name="whitebigbigfont" parent="@style/bigbigfont">
+			<item name="android:textColor">#FFFFFFFF</item>
+		</style>
+		<style name="whitebigbigbigfont" parent="@style/bigbigbigfont">
+			<item name="android:textColor">#FFFFFFFF</item>
+		</style>
+  	<!--  -->
+  	
+	</resources>
