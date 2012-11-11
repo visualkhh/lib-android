@@ -2,6 +2,8 @@ package khh.android.resource;
 
 import java.io.InputStream;
 
+import khh.android.view.filter.ViewFilterUtil;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
@@ -19,7 +21,7 @@ public class ResourceUtil {
 	public static Drawable getDrawable(Context context, int res){
 		Resources resource =getResources(context);//.getResources();
 		Drawable d = resource.getDrawable(res);
-		return  setClearFilter(d);
+		return  ViewFilterUtil.setClearFilter(d);
 	}
 	public static XmlResourceParser  getXml(Context context, int res){
 		Resources resource =getResources(context);//.getResources();
