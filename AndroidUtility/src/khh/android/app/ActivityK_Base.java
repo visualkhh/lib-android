@@ -3,6 +3,7 @@ package khh.android.app;
 import java.util.HashMap;
 
 import khh.android.intent.IntentUtil;
+import khh.android.window.WindowUtil;
 import khh.schedule.Scheduler;
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 
 abstract public class ActivityK_Base extends Activity implements ActivityK_I{
 	public enum REQUEST {
@@ -36,7 +38,7 @@ abstract public class ActivityK_Base extends Activity implements ActivityK_I{
 //	-	액티비티가 실행된 적이 있는데 어떤 이유건 종료됐다가 다시실행되는경우 onSaveInstanceState() 메서드로 보관해둔 Bundle 인스턴스를 넘겨받는다, 저장할때는  onRestoreInstanceState(Bundle)
 //	-	액티비트가 실행중인데 하드웨어 상태(예를들어 가로체그 세로보기 모드변경)에 따라 다른 시소스를 지정해 개발한 경우 하드웨어 상태가 변경되면 액티비티가 새로 생성돼 실행되면서  onCreate() 메서드 호출된다.
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	final protected void onCreate(Bundle savedInstanceState) {
 //		super.onCreate(savedInstanceState);
 		if(isfinish==false)
 		onBeforeProcessing();
@@ -117,6 +119,32 @@ abstract public class ActivityK_Base extends Activity implements ActivityK_I{
 			data_container.put(new Integer(id), object);
 	
 	}
+	
+	
+	
+	
+	boolean disableHomeKey = false;
+	boolean disableBackKey = false;
+	public boolean isDisableHomeKey() {
+		return disableHomeKey;
+	}
+	public boolean isDisableBackKey() {
+		return disableBackKey;
+	}
+
+	//아래 속성 before로 시작하는거는 생성자에서 우선 셋팅해줘야합니다.
+	public void beforeDisableHomeKey(boolean disableHomeKey) {
+		this.disableHomeKey = disableHomeKey;
+	}
+	public void beforeDisableBackKey(boolean disableBackKey) {
+		this.disableBackKey = disableBackKey;
+	}
+
+	
+	
+	
+	
+	
 	
 	//1. finish는 현재 액티비티를 종료시키는 것 즉 스스로 사라지는 것이고
 	@Override
@@ -209,8 +237,10 @@ abstract public class ActivityK_Base extends Activity implements ActivityK_I{
     @Override
     public void onAttachedToWindow() {
     super.onAttachedToWindow();
-    //홈키 무력화 
-  //  this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);
+    	if(isDisableHomeKey()){
+    		WindowUtil.disableHomeKey(context.getWindow());
+//    		this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD);//홈키 무력화 
+    	}
     }
     
     // onDetachedFromWindow ﻿윈도우 상에 view 가 다 없어진 후 생성된다.
@@ -223,13 +253,16 @@ abstract public class ActivityK_Base extends Activity implements ActivityK_I{
 	
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-//    	if (event.getAction() == KeyEvent.ACTION_DOWN) {
-//    		if (KeyCode == KeyEvent.KEYCODE_BACK) {
-//    			// 여기에 뒤로 버튼을 눌렀을때 해야할 행동을 지정한다
-//    	//		return true;
-//    		}
-//    	}
-    	return onKeyDown(keyCode,event);
+//    	int keyCode =  event.getKeyCode();
+    	if(isDisableBackKey()){
+	    	if (event.getAction() == KeyEvent.ACTION_DOWN) {
+	    		if (keyCode == KeyEvent.KEYCODE_BACK) {
+	    			// 여기에 뒤로 버튼을 눌렀을때 해야할 행동을 지정한다
+	    			return true;
+	    		}
+	    	}
+    	}
+    	return super.onKeyDown(keyCode,event);
     }
 	
 }
