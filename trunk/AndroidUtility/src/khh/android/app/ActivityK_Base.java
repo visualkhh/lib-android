@@ -28,7 +28,7 @@ abstract public class ActivityK_Base extends Activity implements ActivityK_I{
 	Scheduler scheduler = null;
 	HashMap<Integer, View> componet_container = null;
 	HashMap<Integer, Object> data_container = null;
-	protected Activity  context = this;
+	protected final Activity  context = this;
 	public Handler handler = new Handler();
 	boolean isfinish=false;
 	

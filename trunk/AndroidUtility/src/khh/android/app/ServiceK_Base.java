@@ -1,5 +1,6 @@
 package khh.android.app;
 
+import android.app.Activity;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -7,6 +8,9 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 
 abstract public class ServiceK_Base extends Service{
+	
+	protected final Service  context = this;
+	
 /*
 client 호출방식에 따라서  
 startService()가 호출되면 onStartCommand()가 bindService()가 호출되면 onBind()
