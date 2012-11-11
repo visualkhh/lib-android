@@ -469,9 +469,7 @@ public class AndroidUtility {
 		}catch(Exception e){
 			return null;
 		}
-		
 		return adr;//etAddress_toString(context,adr.getLatitude(),adr.getLongitude());
-			
 	}
 
 	
@@ -565,6 +563,8 @@ public class AndroidUtility {
 		view.setLayoutParams(param);
 		return param;
 	}
+	
+	
 	public static InputStream getRawResources(Context context,int ref){
 		return context.getResources().openRawResource(ref);
 	}

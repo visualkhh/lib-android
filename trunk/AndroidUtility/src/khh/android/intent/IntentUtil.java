@@ -3,6 +3,7 @@ package khh.android.intent;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 
@@ -35,6 +36,14 @@ public class IntentUtil {
 	public static Bundle getExtras(Activity context,String extraName){
 		Intent intent = context.getIntent();
 		return intent.getExtras();
+	}
+	
+	public static Intent getMarketIntent(String pkgname){
+//		 Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.google.zxing.client.android")); 
+		return new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+pkgname));
+	}
+	public static Intent getLocationSettingIntent(){
+		return new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 	}
 	
 }
