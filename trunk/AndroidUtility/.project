@@ -32,9 +32,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>javautil</name>
+			<name>srcUtil</name>
 			<type>2</type>
-			<location>W:/workspace/source/eclipse/java/Utilkhh/src</location>
+			<location>Z:/code.google/javautil-visualkhh/Utilkhh/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>
