@@ -23,8 +23,6 @@
 		<action id="" class="aa"></action>
 	</swither>
 
-
-
 	<frames>
 		<frame id="ggg" icon="aa" class="a"></frame>
 		<frame id="bbb" icon="aa" class="a"></frame>
