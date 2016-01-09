@@ -14,4 +14,5 @@ public class AnimationUtil {
 			victim.setInAnimation(context, in_animRrs);
 			victim.setOutAnimation(context, out_animRrs);
 	}
+	
 }

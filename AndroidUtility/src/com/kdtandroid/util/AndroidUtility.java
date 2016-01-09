@@ -127,83 +127,87 @@ public class AndroidUtility {
 //	public static String mapKey="0UWMQwxgOV3fpL_h2ETFv3wvl6yLBa5lBIapj6g";
 //	public static String mapKey="0lGutmCGHYElty5wwuwVf067QqEXESJ6FivrL0g";
 	public static String TAG="AndroidUtility";
-	
-	public static void showToast( Context context,String title){
-		showToast(context,title,Toast.LENGTH_SHORT);
-	}
-	public static void showToast( Context context,String title,int tosttime){
-		Toast toast = Toast.makeText(context, title, tosttime);
-		 toast.setGravity( Gravity.CENTER , 0, 0 );
-		 toast.show();
-	}
-	public static void showToast( Context context,View view){
-		 Toast toast = new Toast(context);
-	        toast.setView(view);
-	        toast.setGravity( Gravity.CENTER , 0, 0 );
-	        toast.setDuration(Toast.LENGTH_LONG);
-	        toast.show();
-	}
-	
-	
-	 public static  NotificationManager showNotification(Context context, String title, String message,String alertmessage,int icon,Class forwordActivity) {
-		 NotificationManager nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-		 
-		 // The PendingIntent to launch our activity if the user selects this notification
-	        PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
-	                new Intent(context, forwordActivity), 0);
-	        // construct the Notification object.
-	        Notification notif = new Notification(icon, alertmessage,
-	                System.currentTimeMillis());
-	        
-	        // Set the info for the views that show in the notification panel.
-	        notif.setLatestEventInfo(context, title, message, contentIntent);
-	        
-	        // after a 100ms delay, vibrate for 250ms, pause for 100 ms and
-	        // then vibrate for 500ms.
-	        notif.vibrate = new long[] { 100, 250, 100, 500};
-	        
-	        // Note that we use R.layout.incoming_message_panel as the ID for
-	        // the notification.  It could be any integer you want, but we use
-	        // the convention of using a resource id for a string related to
-	        // the notification.  It will always be a unique number within your
-	        // application.
-	        nm.notify(1, notif);
-	        return nm;
-	 }
-	
-	 public static void clearNotification(NotificationManager nm){
-		 nm.cancelAll();
-	 }
-	public static void showAlert( Context context, String title, String message )
-	{
-	    AlertDialog.Builder alert = new AlertDialog.Builder(context);  
-
-		alert.setIcon(android.R.drawable.ic_dialog_alert);
-		alert.setTitle(title);
-		alert.setMessage(message);
-		alert.setPositiveButton("OK", null);
-		alert.show();
-		
-/*		
-		Toast ast = Toast.makeText( context, message, duration);
-		ast.setGravity(Gravity.CENTER, 0, 0);
-		ast.show();
-		
-		AlertDialog.Builder alert = new AlertDialog.Builder(context);  
-		alert.setIcon(icon);
-		alert.setTitle(title);
-		alert.setMessage(message);
-		alert.setPositiveButton("OK", null);
-		alert.setNeutralButton(arg0, arg1);
-		alert.setNegativeButton(arg0, arg1);
-		alert.show();
-		
-*/		
-	}
-	public static AlertDialog.Builder creativeAlertDialog(Context context){
-		AlertDialog.Builder alert = new AlertDialog.Builder(context);  
-		return alert;
-	}
+//	//mv -> alertUtil
+//	public static void showToast( Context context,String title){
+//		showToast(context,title,Toast.LENGTH_SHORT);
+//	}
+//	//mv -> alertUtil
+//	public static void showToast( Context context,String title,int tosttime){
+//		Toast toast = Toast.makeText(context, title, tosttime);
+//		 toast.setGravity( Gravity.CENTER , 0, 0 );
+//		 toast.show();
+//	}
+//	//mv -> alertUtil
+//	public static void showToast( Context context,View view){
+//		 Toast toast = new Toast(context);
+//	        toast.setView(view);
+//	        toast.setGravity( Gravity.CENTER , 0, 0 );
+//	        toast.setDuration(Toast.LENGTH_LONG);
+//	        toast.show();
+//	}
+//	
+//	//mv -> alertUtil
+//	 public static  NotificationManager showNotification(Context context, String title, String message,String alertmessage,int icon,Class forwordActivity) {
+//		 NotificationManager nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+//		 
+//		 // The PendingIntent to launch our activity if the user selects this notification
+//	        PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
+//	                new Intent(context, forwordActivity), 0);
+//	        // construct the Notification object.
+//	        Notification notif = new Notification(icon, alertmessage,
+//	                System.currentTimeMillis());
+//	        
+//	        // Set the info for the views that show in the notification panel.
+//	        notif.setLatestEventInfo(context, title, message, contentIntent);
+//	        
+//	        // after a 100ms delay, vibrate for 250ms, pause for 100 ms and
+//	        // then vibrate for 500ms.
+//	        notif.vibrate = new long[] { 100, 250, 100, 500};
+//	        
+//	        // Note that we use R.layout.incoming_message_panel as the ID for
+//	        // the notification.  It could be any integer you want, but we use
+//	        // the convention of using a resource id for a string related to
+//	        // the notification.  It will always be a unique number within your
+//	        // application.
+//	        nm.notify(1, notif);
+//	        return nm;
+//	 }
+//	//mv -> alertUtil
+//	 public static void clearNotification(NotificationManager nm){
+//		 nm.cancelAll();
+//	 }
+//	//mv -> alertUtil
+//	public static void showAlert( Context context, String title, String message )
+//	{
+//	    AlertDialog.Builder alert = new AlertDialog.Builder(context);  
+//
+//		alert.setIcon(android.R.drawable.ic_dialog_alert);
+//		alert.setTitle(title);
+//		alert.setMessage(message);
+//		alert.setPositiveButton("OK", null);
+//		alert.show();
+//		
+///*		
+//		Toast ast = Toast.makeText( context, message, duration);
+//		ast.setGravity(Gravity.CENTER, 0, 0);
+//		ast.show();
+//		
+//		AlertDialog.Builder alert = new AlertDialog.Builder(context);  
+//		alert.setIcon(icon);
+//		alert.setTitle(title);
+//		alert.setMessage(message);
+//		alert.setPositiveButton("OK", null);
+//		alert.setNeutralButton(arg0, arg1);
+//		alert.setNegativeButton(arg0, arg1);
+//		alert.show();
+//		
+//*/		
+//	}
+//	//mv -> alertUtil
+//	public static AlertDialog.Builder creativeAlertDialog(Context context){
+//		AlertDialog.Builder alert = new AlertDialog.Builder(context);  
+//		return alert;
+//	}
 
 	
 	
@@ -372,6 +376,8 @@ public class AndroidUtility {
 			mgr.hideSoftInputFromWindow(view.getWindowToken(), 0);
 		}
 	}
+	
+	
 	public static Location getLocation(Address addr){
 		Location location = new Location(LocationManager.NETWORK_PROVIDER);
 		location.setLatitude(addr.getLatitude());
@@ -389,88 +395,92 @@ public class AndroidUtility {
 		return location;
 	}
 	
-
-	public static String getAddress_toString(Address adr){
-		StringBuilder geoString = new StringBuilder();
-    	for(int y = 0 ; y<adr.getMaxAddressLineIndex();y++)
-    		geoString.append(adr.getAddressLine(y)).append("\n");
-    		
-    	if (adr.getLocality() != null) geoString.append(adr.getLocality()).append(" "); //서울특별시
-    	if (adr.getThoroughfare() != null) geoString.append(adr.getThoroughfare()).append(" ");		//방학1동
-    	if (adr.getFeatureName () != null) geoString.append(adr.getFeatureName ());		//12-22 번지
-    	if (adr.getSubAdminArea  () != null) geoString.append(adr.getSubAdminArea  ());		//getSubAdminArea 
-    	if (adr.getPremises  () != null) geoString.append(adr.getPremises  ());		//12-22
-//		    	if (adr.getPostalCode  () != null) geoString.append(adr.getPostalCode  ());		//12-22
-		//    	if (adr.getSubThoroughfare   () != null) geoString.append(adr.getSubThoroughfare   ());		//12-22
-		//    	if (adr.getThoroughfare    () != null) geoString.append(adr.getThoroughfare    ());		//12-22
-		//    	if (adr.getUrl    () != null) geoString.append(adr.getUrl    ());		//12-22
-		//    	if (adr.getCountryName () != null) geoString.append(adr.getCountryName ());		//대한민국
-		//    	if (!"".equals(geoString.toString())) geoString.append("\n");
-		//    	geoString.append("위도 : ").append(lat).append(" ,경도 : ").append(lng);
-    	return geoString.toString();
-	}
-	public static ArrayList<String> getAddress_toString(List<Address> addrlist){
-		
-		ArrayList<String> adr_string =new ArrayList<String>();
-//    	Geocoder goecoder = new Geocoder(context,
-//    	Locale.getDefault());
-    	for(int  i = 0 ; i < addrlist.size();i++){
-			StringBuilder geoString = new StringBuilder();
-			Address adr =addrlist.get(i);
-		    	adr_string.add(getAddress_toString(adr));
-    	}
-    	return adr_string;
-	}
-//	public static ArrayList<com.kdt.std.realworld.Address> getAddress_toObj(List<Address> addrlist){
-//		ArrayList<com.kdt.std.realworld.Address> adrlist = new ArrayList<com.kdt.std.realworld.Address>(); 
-//    	for(int  i = 0 ; i < addrlist.size();i++){
-//    		com.kdt.std.realworld.Address addr= new com.kdt.std.realworld.Address();
-//    		Address adr =addrlist.get(i);
-//		    	if (adr.getLocality() != null) addr.setSi(adr.getLocality()); //서울특별시
-//				if (adr.getThoroughfare() != null) addr.setDong(adr.getThoroughfare());		//방학1동
-//				if (adr.getFeatureName () != null) addr.setBunji(adr.getFeatureName ());		//12-22 번지
-//				if (adr.getFeatureName () != null) addr.setPostcode(adr.getPostalCode());		//우편
-//		    	
-//		//    	if (adr.getPostalCode  () != null) geoString.append(adr.getPostalCode  ());		//12-22
+//mv -> LocationUtil
+//	public static String getAddress_toString(Address adr){
+//		StringBuilder geoString = new StringBuilder();
+//    	for(int y = 0 ; y<adr.getMaxAddressLineIndex();y++)
+//    		geoString.append(adr.getAddressLine(y)).append("\n");
+//    		
+//    	if (adr.getLocality() != null) geoString.append(adr.getLocality()).append(" "); //서울특별시
+//    	if (adr.getThoroughfare() != null) geoString.append(adr.getThoroughfare()).append(" ");		//방학1동
+//    	if (adr.getFeatureName () != null) geoString.append(adr.getFeatureName ());		//12-22 번지
+//    	if (adr.getSubAdminArea  () != null) geoString.append(adr.getSubAdminArea  ());		//getSubAdminArea 
+//    	if (adr.getPremises  () != null) geoString.append(adr.getPremises  ());		//12-22
+////		    	if (adr.getPostalCode  () != null) geoString.append(adr.getPostalCode  ());		//12-22
 //		//    	if (adr.getSubThoroughfare   () != null) geoString.append(adr.getSubThoroughfare   ());		//12-22
 //		//    	if (adr.getThoroughfare    () != null) geoString.append(adr.getThoroughfare    ());		//12-22
 //		//    	if (adr.getUrl    () != null) geoString.append(adr.getUrl    ());		//12-22
 //		//    	if (adr.getCountryName () != null) geoString.append(adr.getCountryName ());		//대한민국
 //		//    	if (!"".equals(geoString.toString())) geoString.append("\n");
 //		//    	geoString.append("위도 : ").append(lat).append(" ,경도 : ").append(lng);
-//		    	adrlist.add(addr);
-//    	}
-//    	return adrlist;
+//    	return geoString.toString();
 //	}
-	
-	public static List<Address> getAddress(Context context,Location location ,int wantSize){
-		return getAddress(context, location.getLatitude(), location.getLongitude(),wantSize);
-	}
-	public static List<Address> getAddress(Context context,double lat, double lng,int wantSize ){
-	  	Geocoder goecoder = new Geocoder(context,
-	  	    	Locale.getDefault());
-
-	  	    	List<Address> adr=null;
-				try {
-					adr = goecoder.getFromLocation(lat,
-					lng, wantSize);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-    	return adr;
-	}
-	public static List<Address> getAddress(Context context,String findName ,int wantSize ){
-		List<Address> adr = null;
-//		StringBuilder geoString = new StringBuilder();
-		try {
-			Geocoder goecoder = new Geocoder(context, Locale.getDefault());
-			adr = goecoder.getFromLocationName(findName, wantSize);
-		}catch(Exception e){
-			return null;
-		}
-		return adr;//etAddress_toString(context,adr.getLatitude(),adr.getLongitude());
-	}
+	//mv -> LocationUtil
+//	public static ArrayList<String> getAddress_toString(List<Address> addrlist){
+//		
+//		ArrayList<String> adr_string =new ArrayList<String>();
+////    	Geocoder goecoder = new Geocoder(context,
+////    	Locale.getDefault());
+//    	for(int  i = 0 ; i < addrlist.size();i++){
+//			StringBuilder geoString = new StringBuilder();
+//			Address adr =addrlist.get(i);
+//		    	adr_string.add(getAddress_toString(adr));
+//    	}
+//    	return adr_string;
+//	}
+////	public static ArrayList<com.kdt.std.realworld.Address> getAddress_toObj(List<Address> addrlist){
+////		ArrayList<com.kdt.std.realworld.Address> adrlist = new ArrayList<com.kdt.std.realworld.Address>(); 
+////    	for(int  i = 0 ; i < addrlist.size();i++){
+////    		com.kdt.std.realworld.Address addr= new com.kdt.std.realworld.Address();
+////    		Address adr =addrlist.get(i);
+////		    	if (adr.getLocality() != null) addr.setSi(adr.getLocality()); //서울특별시
+////				if (adr.getThoroughfare() != null) addr.setDong(adr.getThoroughfare());		//방학1동
+////				if (adr.getFeatureName () != null) addr.setBunji(adr.getFeatureName ());		//12-22 번지
+////				if (adr.getFeatureName () != null) addr.setPostcode(adr.getPostalCode());		//우편
+////		    	
+////		//    	if (adr.getPostalCode  () != null) geoString.append(adr.getPostalCode  ());		//12-22
+////		//    	if (adr.getSubThoroughfare   () != null) geoString.append(adr.getSubThoroughfare   ());		//12-22
+////		//    	if (adr.getThoroughfare    () != null) geoString.append(adr.getThoroughfare    ());		//12-22
+////		//    	if (adr.getUrl    () != null) geoString.append(adr.getUrl    ());		//12-22
+////		//    	if (adr.getCountryName () != null) geoString.append(adr.getCountryName ());		//대한민국
+////		//    	if (!"".equals(geoString.toString())) geoString.append("\n");
+////		//    	geoString.append("위도 : ").append(lat).append(" ,경도 : ").append(lng);
+////		    	adrlist.add(addr);
+////    	}
+////    	return adrlist;
+////	}
+//	
+	//mv -> LocationUtil
+//	public static List<Address> getAddress(Context context,Location location ,int wantSize){
+//		return getAddress(context, location.getLatitude(), location.getLongitude(),wantSize);
+//	}
+	//mv -> LocationUtil
+//	public static List<Address> getAddress(Context context,double lat, double lng,int wantSize ){
+//	  	Geocoder goecoder = new Geocoder(context,
+//	  	    	Locale.getDefault());
+//
+//	  	    	List<Address> adr=null;
+//				try {
+//					adr = goecoder.getFromLocation(lat,
+//					lng, wantSize);
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//    	return adr;
+//	}
+	//mv -> LocationUtil
+//	public static List<Address> getAddress(Context context,String findName ,int wantSize ){
+//		List<Address> adr = null;
+////		StringBuilder geoString = new StringBuilder();
+//		try {
+//			Geocoder goecoder = new Geocoder(context, Locale.getDefault());
+//			adr = goecoder.getFromLocationName(findName, wantSize);
+//		}catch(Exception e){
+//			return null;
+//		}
+//		return adr;//etAddress_toString(context,adr.getLatitude(),adr.getLongitude());
+//	}
 
 	
 
@@ -564,47 +574,47 @@ public class AndroidUtility {
 		return param;
 	}
 	
-	
-	public static InputStream getRawResources(Context context,int ref){
-		return context.getResources().openRawResource(ref);
-	}
-	public static Resources getResources(Context context){
-		return context.getResources();
-	}
-	public static Drawable getDrawable(Context context, int res){
-		Resources resource =getResources(context);//.getResources();
-		Drawable d = resource.getDrawable(res);
-		return  setClearFilter(d);
-	}
-	public static XmlResourceParser  getXml(Context context, int res){
-		Resources resource =getResources(context);//.getResources();
-		return  resource.getXml(res);
-	}
-	
-	public static Bitmap getBitmap(Context context, int imgres){
-		Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), imgres);
-		return bitmap;
-	}
-	public static String getString(Context context, int res){
-		Resources resource =context.getResources();
-		return  resource.getString(res).toString();
-	}
-	public static String[] getStringArray(Context context, int res){
-		Resources resource =context.getResources();
-		return  resource.getStringArray(res);
-	}
-	public static String getString(Context context, int res ,Object... arg){
-		Resources resource =context.getResources();
-		return  resource.getString(res,arg).toString();
-	}
-	public static int getColor(Context context, int res){
-		Resources resource =context.getResources();
-		return  resource.getColor(res);
-	}
-	public static int getInteger(Context context, int res){
-		Resources resource =context.getResources();
-		return  resource.getInteger(res);
-	}
+	//mv -> ResourceUtil
+//	public static InputStream getRawResources(Context context,int ref){
+//		return context.getResources().openRawResource(ref);
+//	}
+//	public static Resources getResources(Context context){
+//		return context.getResources();
+//	}
+//	public static Drawable getDrawable(Context context, int res){
+//		Resources resource =getResources(context);//.getResources();
+//		Drawable d = resource.getDrawable(res);
+//		return  setClearFilter(d);
+//	}
+//	public static XmlResourceParser  getXml(Context context, int res){
+//		Resources resource =getResources(context);//.getResources();
+//		return  resource.getXml(res);
+//	}
+//	
+//	public static Bitmap getBitmap(Context context, int imgres){
+//		Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), imgres);
+//		return bitmap;
+//	}
+//	public static String getString(Context context, int res){
+//		Resources resource =context.getResources();
+//		return  resource.getString(res).toString();
+//	}
+//	public static String[] getStringArray(Context context, int res){
+//		Resources resource =context.getResources();
+//		return  resource.getStringArray(res);
+//	}
+//	public static String getString(Context context, int res ,Object... arg){
+//		Resources resource =context.getResources();
+//		return  resource.getString(res,arg).toString();
+//	}
+//	public static int getColor(Context context, int res){
+//		Resources resource =context.getResources();
+//		return  resource.getColor(res);
+//	}
+//	public static int getInteger(Context context, int res){
+//		Resources resource =context.getResources();
+//		return  resource.getInteger(res);
+//	}
 	
 	
 	
@@ -746,33 +756,33 @@ public class AndroidUtility {
 	
 	
 	
-	
-	public static Location getGPS(Activity context){
-		return getGPS(context,null,0,0);
-	}
-	
-	public static GeoPoint getGPS_FromNetwork(Context context, LocationListener listener, int sec, int meter){
-//		((LocationManager)context.getSystemService(LOCATION_SERVICE)).getLastKnownLocation(LocationManager.NETWORK_PROVIDER).getLatitude()*1E6),,(int)(((LocationManager)getSystemService(LOCATION_SERVICE)).getLastKnownLocation(LocationManager.NETWORK_PROVIDER).getLongitude()*1E6))
-		 LocationManager locationManager=(LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
-		 
-		   if(listener!=null)
-	            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, sec, meter, listener);//현재정보를 업데이트
-		   
-		   Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-		   GeoPoint geo=null;
-//		   if(location!=null){
-			 double lat = location.getLatitude();
-			 double lon = location.getLongitude();
-			 geo=getGeoPoint(lat, lon);
-//		   }
-		   return geo;
-	}
-	
-	public static void setGPS_removeUpdate(Context context,LocationListener listener){
-		String contextstr = Context.LOCATION_SERVICE;//안드로이드 시스템으로 부터 LocationManager 서비스를 요청하여 할당
-		LocationManager locationManager = (LocationManager)context.getSystemService(contextstr);
-		locationManager.removeUpdates(listener);
-	}
+	//mv -> gpsutil
+//	public static Location getGPS(Activity context){
+//		return getGPS(context,null,0,0);
+//	}
+//	
+//	public static GeoPoint getGPS_FromNetwork(Context context, LocationListener listener, int sec, int meter){
+////		((LocationManager)context.getSystemService(LOCATION_SERVICE)).getLastKnownLocation(LocationManager.NETWORK_PROVIDER).getLatitude()*1E6),,(int)(((LocationManager)getSystemService(LOCATION_SERVICE)).getLastKnownLocation(LocationManager.NETWORK_PROVIDER).getLongitude()*1E6))
+//		 LocationManager locationManager=(LocationManager)context.getSystemService(Context.LOCATION_SERVICE);
+//		 
+//		   if(listener!=null)
+//	            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, sec, meter, listener);//현재정보를 업데이트
+//		   
+//		   Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+//		   GeoPoint geo=null;
+////		   if(location!=null){
+//			 double lat = location.getLatitude();
+//			 double lon = location.getLongitude();
+//			 geo=getGeoPoint(lat, lon);
+////		   }
+//		   return geo;
+//	}
+	//mv ->GpsUtil
+//	public static void setGPS_removeUpdate(Context context,LocationListener listener){
+//		String contextstr = Context.LOCATION_SERVICE;//안드로이드 시스템으로 부터 LocationManager 서비스를 요청하여 할당
+//		LocationManager locationManager = (LocationManager)context.getSystemService(contextstr);
+//		locationManager.removeUpdates(listener);
+//	}
 	public static Location getGPS(Context context,LocationListener listener,int sec,int meter){
         
         String contextstr = Context.LOCATION_SERVICE;//안드로이드 시스템으로 부터 LocationManager 서비스를 요청하여 할당
@@ -860,32 +870,32 @@ public class AndroidUtility {
 //	    return location;
 	}
 	
-	
-	 private static boolean checkGpsService(final Context context) {//GPS의 설정여부 확인 및 자동 설정 변경
-         String gs = android.provider.Settings.Secure.getString(context.getContentResolver(),
-         android.provider.Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
-         Log.w(TAG , "chkGpsService get GPs Service" );
-          
-         if (gs.indexOf("gps", 0) < 0) {
-             Log.w("chkGpsService" , "status: off" );
-             // GPS OFF 일때 Dialog 띄워서 설정 화면으로 이동.
-             AlertDialog.Builder gsDialog = new AlertDialog.Builder(context);
-             gsDialog.setTitle("GPS Status OFF !!!");
-             gsDialog.setMessage("Change Setting !!");
-             gsDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                     // GPS설정 화면으로 이동
-                     Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                     intent.addCategory(Intent.CATEGORY_DEFAULT);
-                     context.startActivity(intent);
-                 }
-             }).create().show();
-             return false;
-         } else {
-             Log.w("chkGpsService" , "status: on" );                 
-             return true;
-         }
-     }     
+	//mv->GpsUtil
+//	 private static boolean checkGpsService(final Context context) {//GPS의 설정여부 확인 및 자동 설정 변경
+//         String gs = android.provider.Settings.Secure.getString(context.getContentResolver(),
+//         android.provider.Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+//         Log.w(TAG , "chkGpsService get GPs Service" );
+//          
+//         if (gs.indexOf("gps", 0) < 0) {
+//             Log.w("chkGpsService" , "status: off" );
+//             // GPS OFF 일때 Dialog 띄워서 설정 화면으로 이동.
+//             AlertDialog.Builder gsDialog = new AlertDialog.Builder(context);
+//             gsDialog.setTitle("GPS Status OFF !!!");
+//             gsDialog.setMessage("Change Setting !!");
+//             gsDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                 public void onClick(DialogInterface dialog, int which) {
+//                     // GPS설정 화면으로 이동
+//                     Intent intent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+//                     intent.addCategory(Intent.CATEGORY_DEFAULT);
+//                     context.startActivity(intent);
+//                 }
+//             }).create().show();
+//             return false;
+//         } else {
+//             Log.w("chkGpsService" , "status: on" );                 
+//             return true;
+//         }
+//     }     
 	
 	
 	
@@ -1345,7 +1355,7 @@ public class AndroidUtility {
 		return root;
 	}
 	
-	
+	//mv -> viewUtil
 	public static View creativeLayout(Context context,int layout){
 		LayoutInflater inflater	=	(LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
 			return inflater.inflate(layout, null);
@@ -1643,143 +1653,165 @@ public static Dialog creativeDialog(Context context,int layout){
 		context.startActivity(new Intent(android.provider.Settings.ACTION_LOCALE_SETTINGS));
 	}
 	
-	public static void goProgram(Context context, String pkg , String fullclasspath){
-		Intent intent = new Intent();
-		  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		  intent.setComponent(new ComponentName(pkg, fullclasspath));
-		context.startActivity(intent);
-	}
-	public static void killProgram(Context context, String packageName ){
-		ActivityManager mActivityManager=(ActivityManager) context.getSystemService(context.ACTIVITY_SERVICE);
-		try{
-			mActivityManager.restartPackage(packageName);                  //2.1 version
-		}catch(Exception e){
-			mActivityManager.killBackgroundProcesses(packageName);   //2.2 version
-		}
-	}
 	
-	public static void goPage(Context context, Class gopage){
-		Intent intent = new Intent(context, gopage);
-		context.startActivity(intent);
-	}
-	public static void goPage(Context context,Class gopage,String extraName , String extraValue){
-		Intent intent = new Intent(context, gopage); 
-		intent.putExtra(extraName,extraValue);
-		context.startActivity(intent);
-	}
-	public static void goPage(Context context,Class gopage,String extraName , int extraValue){
-		Intent intent = new Intent(context, gopage); 
-		intent.putExtra(extraName,extraValue);
-		context.startActivity(intent);
-	}
-	public static void goPage(Context context,Class gopage,String extraName ,  Parcelable extraValue){
-		Intent intent = new Intent(context, gopage); 
-		intent.putExtra(extraName,extraValue);
-		context.startActivity(intent);
-	}
-	
-	
-	public static void resultSetParameter(Activity context,int resultCode){
-		context.setResult(resultCode);
+//	//mv->IntentUtil
+//	public static void goProgram(Context context, String pkg , String fullclasspath){
+//		Intent intent = new Intent();
+//		  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//		  intent.setComponent(new ComponentName(pkg, fullclasspath));
+//		context.startActivity(intent);
+//	}
+//	//mv->IntentUtil
+//	public static void killProgram(Context context, String packageName ){
+//		ActivityManager mActivityManager=(ActivityManager) context.getSystemService(context.ACTIVITY_SERVICE);
+//		try{
+//			mActivityManager.restartPackage(packageName);                  //2.1 version
+//		}catch(Exception e){
+//			mActivityManager.killBackgroundProcesses(packageName);   //2.2 version
+//		}
+//	}
+//	//mv->IntentUtil
+//	public static void goPage(Context context, Class gopage){
 //		Intent intent = new Intent(context, gopage);
 //		context.startActivity(intent);
-	}
-	public static void resultSetParameter(Activity context,int resultCode,String extraName , String extraValue){
-		Intent intent = new Intent();
-		intent.putExtra(extraName,extraValue);
-		context.setResult(resultCode,intent);		
-	}
-	public static void resultSetParameter(Activity context,int resultCode,String extraName , int extraValue){
-		Intent intent = new Intent(); 
-		intent.putExtra(extraName,extraValue);
-		context.setResult(resultCode,intent);		
-	}
-	public static void resultSetParameter(Activity context,int resultCode,String extraName , int[] extraValue){
-		Intent intent = new Intent(); 
-		intent.putExtra(extraName,extraValue);
-		context.setResult(resultCode,intent);		
-	}
-	public static void resultSetParameter(Activity context,int resultCode,String extraName , double extraValue){
-		Intent intent = new Intent(); 
-		intent.putExtra(extraName,extraValue);
-		context.setResult(resultCode,intent);		
-	}
-	public static void resultSetParameter(Activity context,int resultCode,String extraName , double[] extraValue){
-		Intent intent = new Intent(); 
-		intent.putExtra(extraName,extraValue);
-		context.setResult(resultCode,intent);		
-	}
-	public static void resultSetParameter(Activity context,int resultCode,String extraName , float extraValue){
-		Intent intent = new Intent(); 
-		intent.putExtra(extraName,extraValue);
-		context.setResult(resultCode,intent);		
-	}
-	public static void resultSetParameter(Activity context,int resultCode,String extraName , float[] extraValue){
-		Intent intent = new Intent(); 
-		intent.putExtra(extraName,extraValue);
-		context.setResult(resultCode,intent);		
-	}
-	public static void resultSetParameter(Activity context,int resultCode,String extraName ,  Parcelable extraValue){
-		Intent intent = new Intent(); 
-		intent.putExtra(extraName,extraValue);
-		context.setResult(resultCode,intent);		
-	}
-	
-	
-	public static void goPageForResult(Activity context,int requstcode, Class gopage){
-		Intent intent = new Intent(context, gopage);
-		context.startActivityForResult(intent,requstcode);
-	}
-	public static void goPageForResult(Activity context,int requstcode,Class gopage,String extraName , String extraValue){
-		Intent intent = new Intent(context, gopage); 
-		intent.putExtra(extraName,extraValue);
-		context.startActivityForResult(intent,requstcode);
-	}
-	public static void goPageForResult(Activity context,int requstcode,Class gopage,String extraName , Parcelable extraValue){
-		Intent intent = new Intent(context, gopage); 
-		intent.putExtra(extraName,extraValue);
-		context.startActivityForResult(intent,requstcode);
-	}
-	public static void goPageForResult(Activity context,int requstcode,Class gopage,String extraName , int extraValue){
-		Intent intent = new Intent(context, gopage); 
-		intent.putExtra(extraName,extraValue);
-		context.startActivityForResult(intent,requstcode);
-	}
-	
-	public static void goDial(Context context,String dial_number){
-		Intent phonepassIntent =  new Intent();	
-		phonepassIntent.setAction(Intent.ACTION_DIAL); 
-		phonepassIntent.setData(Uri.parse("tel:"+dial_number));
-	    context.startActivity(phonepassIntent);
-	}
-	
-	
-	
-	public static Intent getIntent(Context context, Class activitys){
-		Intent intent = new Intent(context, activitys);
-		return intent;
-	}
-	public static Parcelable requestGetParameter_toParcelable(Activity context,String extraName){
-		Intent intent = context.getIntent();
-		return intent.getParcelableExtra(extraName);
-	}
-	public static int requestGetParameter_toInt(Activity context,String extraName,int defaultValue){
-		Intent intent = context.getIntent();
-		return intent.getIntExtra(extraName, defaultValue);
-	}
-	public static double requestGetParameter_toDouble(Activity context,String extraName,double defaultValue){
-		Intent intent = context.getIntent();
-		return intent.getDoubleExtra(extraName, defaultValue);
-	}
-	public static String requestGetParameter_toString(Activity context,String extraName){
-		Intent intent = context.getIntent();
-		return intent.getStringExtra(extraName);
-	}
-	public static String[] requestGetParameter_toStringArray(Activity context,String extraName){
-		Intent intent = context.getIntent();
-		return intent.getStringArrayExtra(extraName);
-	}
-	
+//	}
+//	//mv->IntentUtil
+//	public static void goPage(Context context,Class gopage,String extraName , String extraValue){
+//		Intent intent = new Intent(context, gopage); 
+//		intent.putExtra(extraName,extraValue);
+//		context.startActivity(intent);
+//	}
+//	//mv->IntentUtil
+//	public static void goPage(Context context,Class gopage,String extraName , int extraValue){
+//		Intent intent = new Intent(context, gopage); 
+//		intent.putExtra(extraName,extraValue);
+//		context.startActivity(intent);
+//	}
+//	//mv->IntentUtil
+//	public static void goPage(Context context,Class gopage,String extraName ,  Parcelable extraValue){
+//		Intent intent = new Intent(context, gopage); 
+//		intent.putExtra(extraName,extraValue);
+//		context.startActivity(intent);
+//	}
+//
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode){
+//		context.setResult(resultCode);
+////		Intent intent = new Intent(context, gopage);
+////		context.startActivity(intent);
+//	}
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode,String extraName , String extraValue){
+//		Intent intent = new Intent();
+//		intent.putExtra(extraName,extraValue);
+//		context.setResult(resultCode,intent);		
+//	}
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode,String extraName , int extraValue){
+//		Intent intent = new Intent(); 
+//		intent.putExtra(extraName,extraValue);
+//		context.setResult(resultCode,intent);		
+//	}
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode,String extraName , int[] extraValue){
+//		Intent intent = new Intent(); 
+//		intent.putExtra(extraName,extraValue);
+//		context.setResult(resultCode,intent);		
+//	}
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode,String extraName , double extraValue){
+//		Intent intent = new Intent(); 
+//		intent.putExtra(extraName,extraValue);
+//		context.setResult(resultCode,intent);		
+//	}
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode,String extraName , double[] extraValue){
+//		Intent intent = new Intent(); 
+//		intent.putExtra(extraName,extraValue);
+//		context.setResult(resultCode,intent);		
+//	}
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode,String extraName , float extraValue){
+//		Intent intent = new Intent(); 
+//		intent.putExtra(extraName,extraValue);
+//		context.setResult(resultCode,intent);		
+//	}
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode,String extraName , float[] extraValue){
+//		Intent intent = new Intent(); 
+//		intent.putExtra(extraName,extraValue);
+//		context.setResult(resultCode,intent);		
+//	}
+//	//mv->IntentUtil
+//	public static void resultSetParameter(Activity context,int resultCode,String extraName ,  Parcelable extraValue){
+//		Intent intent = new Intent(); 
+//		intent.putExtra(extraName,extraValue);
+//		context.setResult(resultCode,intent);		
+//	}
+//	
+//	//mv->IntentUtil
+//	public static void goPageForResult(Activity context,int requstcode, Class gopage){
+//		Intent intent = new Intent(context, gopage);
+//		context.startActivityForResult(intent,requstcode);
+//	}
+//	//mv->IntentUtil
+//	public static void goPageForResult(Activity context,int requstcode,Class gopage,String extraName , String extraValue){
+//		Intent intent = new Intent(context, gopage); 
+//		intent.putExtra(extraName,extraValue);
+//		context.startActivityForResult(intent,requstcode);
+//	}
+//	//mv->IntentUtil
+//	public static void goPageForResult(Activity context,int requstcode,Class gopage,String extraName , Parcelable extraValue){
+//		Intent intent = new Intent(context, gopage); 
+//		intent.putExtra(extraName,extraValue);
+//		context.startActivityForResult(intent,requstcode);
+//	}
+//	//mv->IntentUtil
+//	public static void goPageForResult(Activity context,int requstcode,Class gopage,String extraName , int extraValue){
+//		Intent intent = new Intent(context, gopage); 
+//		intent.putExtra(extraName,extraValue);
+//		context.startActivityForResult(intent,requstcode);
+//	}
+//	//mv->IntentUtil
+//	public static void goDial(Context context,String dial_number){
+//		Intent phonepassIntent =  new Intent();	
+//		phonepassIntent.setAction(Intent.ACTION_DIAL); 
+//		phonepassIntent.setData(Uri.parse("tel:"+dial_number));
+//	    context.startActivity(phonepassIntent);
+//	}
+//	
+//	
+//	//mv->IntentUtil
+//	public static Intent getIntent(Context context, Class activitys){
+//		Intent intent = new Intent(context, activitys);
+//		return intent;
+//	}
+//	//mv->IntentUtil
+//	public static Parcelable requestGetParameter_toParcelable(Activity context,String extraName){
+//		Intent intent = context.getIntent();
+//		return intent.getParcelableExtra(extraName);
+//	}
+//	//mv->IntentUtil
+//	public static int requestGetParameter_toInt(Activity context,String extraName,int defaultValue){
+//		Intent intent = context.getIntent();
+//		return intent.getIntExtra(extraName, defaultValue);
+//	}
+//	//mv->IntentUtil
+//	public static double requestGetParameter_toDouble(Activity context,String extraName,double defaultValue){
+//		Intent intent = context.getIntent();
+//		return intent.getDoubleExtra(extraName, defaultValue);
+//	}
+//	//mv->IntentUtil
+//	public static String requestGetParameter_toString(Activity context,String extraName){
+//		Intent intent = context.getIntent();
+//		return intent.getStringExtra(extraName);
+//	}
+//	//mv->IntentUtil
+//	public static String[] requestGetParameter_toStringArray(Activity context,String extraName){
+//		Intent intent = context.getIntent();
+//		return intent.getStringArrayExtra(extraName);
+//	}
+//	
 
 	
 	
@@ -1999,15 +2031,16 @@ public static Dialog backgroundProcess(Context context,final Runnable run,final 
 
 
 
-
-public static void setAnimation(Context context,ViewAnimator victim,int in_animRrs,int out_animRrs) {
-//	victim.setInAnimation(AnimationUtils.loadAnimation(context, animRrs));
-		victim.setInAnimation(context, in_animRrs);
-		victim.setOutAnimation(context, out_animRrs);
-}
-public static Animation getAnimation(Context context,int anim_res) {
-	return AnimationUtils.loadAnimation(context,anim_res);
-}
+////mv -> AnimationUtil
+//public static void setAnimation(Context context,ViewAnimator victim,int in_animRrs,int out_animRrs) {
+////	victim.setInAnimation(AnimationUtils.loadAnimation(context, animRrs));
+//		victim.setInAnimation(context, in_animRrs);
+//		victim.setOutAnimation(context, out_animRrs);
+//}
+////mv -> AnimationUtil
+//public static Animation getAnimation(Context context,int anim_res) {
+//	return AnimationUtils.loadAnimation(context,anim_res);
+//}
 
  
 public static void goMarket(Context context,String pkgname){

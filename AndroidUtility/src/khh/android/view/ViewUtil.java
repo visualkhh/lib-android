@@ -1,5 +1,8 @@
 package khh.android.view;
 
+import com.kdtandroid.util.Context;
+import com.kdtandroid.util.LayoutInflater;
+
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.view.View;
@@ -24,5 +27,9 @@ public class ViewUtil {
 		return context.getMeasuredHeight();
 	}
 	
+	public static View inflateLayout(Context context,int layout){
+		LayoutInflater inflater	=	(LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+			return inflater.inflate(layout, null);
+	}
 	
 }

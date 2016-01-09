@@ -1,6 +1,7 @@
 package khh.android.resource;
 
 import java.io.InputStream;
+import java.io.OutputStream;
 
 import khh.android.view.filter.ViewFilterUtil;
 
@@ -8,6 +9,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 
@@ -18,20 +20,12 @@ public class ResourceUtil {
 	public static Resources getResources(Context context){
 		return context.getResources();
 	}
-	public static Drawable getDrawable(Context context, int res){
-		Resources resource =getResources(context);//.getResources();
-		Drawable d = resource.getDrawable(res);
-		return  ViewFilterUtil.setClearFilter(d);
-	}
+
 	public static XmlResourceParser  getXml(Context context, int res){
 		Resources resource =getResources(context);//.getResources();
 		return  resource.getXml(res);
 	}
 	
-	public static Bitmap getBitmap(Context context, int imgres){
-		Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), imgres);
-		return bitmap;
-	}
 	public static String getString(Context context, int res){
 		Resources resource =context.getResources();
 		return  resource.getString(res).toString();
